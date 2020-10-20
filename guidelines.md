@@ -3,9 +3,11 @@
 
 ## What is it?
 
-Public competition to showcase the best OpenShift web console customizations, using supported OpenShift 4 mechanisms. 
+Public competition to showcase the best OpenShift web console customizations, using **supported OpenShift 4 mechanisms**. 
 
-Interested parties will have the opportunity to demonstrate their own customizations for which they have implemented in their organization or for person use, as well as act as a judge for the public competition, each to be part of the openshift.tv series of events, held on Nov 17th and December 1st.
+Interested parties will have the opportunity to submit their own customizations for which they have implemented in their organization or for personal use.
+
+All viewers of the joint OpenShift Commons / Developer Experience Office Hours session on OpenShift.tv on **Tuesday, December 1st at 11am EST** will be able to vote to determine the top 3 winners!
 
 ## Eligibility
 
@@ -13,6 +15,7 @@ Interested parties will have the opportunity to demonstrate their own customizat
 - You must agree to be referenced as a participant of the competition
 - You allow Red Hat to blog about your entry and reference either (a) your organization (b) your name (c) your github id
 - You must agree to share your code and screenshot in a public git repository
+- Include multiple supported customizations in your submission.  The more the merrier! 
 
 Try OpenShift here! https://www.openshift.com/try 
 
