@@ -1,5 +1,5 @@
 
-# Guidelines - OpenShift Console Customization Competition
+# Guidelines - OpenShift Console Competition
 
 ## What is it?
 

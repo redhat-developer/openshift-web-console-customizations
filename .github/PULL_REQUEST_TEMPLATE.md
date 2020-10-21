@@ -1,6 +1,6 @@
-# OpenShift Web Console Competition Submission (Pull Request)
+# OpenShift Console Competition Submission (Pull Request)
 
-Thank you for your interest in the OpenShift Web Console Competition! By submitting this pull request, you confirm that you have completed and agreed to the following:
+Thank you for your interest in the OpenShift 4 Console Competition! By submitting this pull request, you confirm that you have completed and agreed to the following:
 
 ## The Business Details
 

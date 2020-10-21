@@ -1,10 +1,10 @@
-# OpenShift Web Console Competition
+# OpenShift 4 Console Competition
 
-Submissions for the OpenShift Web Console Competition. 
+Submissions for the OpenShift Console Competition. 
 
 ## Guidelines
 
-Refer to [this document](GUIDELINES.md) for the full set of guidelines related to the OpenShift Web Console Competition.
+Refer to [this document](GUIDELINES.md) for the full set of guidelines related to the OpenShift Console Competition.
 
 ## Adding your content
 
