@@ -2,6 +2,10 @@
 
 Submissions for the OpenShift Web Console Competition. 
 
+## Guidelines
+
+Refer to [this document](GUIDELINES.md) for the full set of guidelines related to the OpenShift Web Console Competition.
+
 ## Adding your content
 
 Use the following steps to add your content to the repository to go alongside your submission
