@@ -36,7 +36,7 @@ If you fail to do so, it will result in your immediate disqualification from the
 - **All submissions must be submitted by November 29th 11:59 pm PST**
 
 ## Determining the Winner
-Tune into the joint OpenShift Commons / Developer Experience Office Hours session on [OpenShift.tv](https://www.openshift.com/streaming) on **December 1st at 11am EST**
+Tune into the joint OpenShift Commons / Developer Experience Office Hours session on [OpenShift.tv](https://www.openshift.com/streaming) on **Tuesday, December 1st at 11am EST**
 - The top 10 submissions, determined by the Competition Committee, will be announced
 - During the show, viewers will determine the top 3 winners by online voting 
 
