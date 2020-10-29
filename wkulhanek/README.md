@@ -6,17 +6,17 @@ Wolfgang is responsible for OpenShift Container Platform Clusters used in Red Ha
 
 ## Customization details:
 
-* Use the same background and logo for the OpenShift Login Page as is used in the provisioning portal.
+* Use the same background and logo for the OpenShift login page as is used in the provisioning portal for consistent look and feel:
 
   [<img src="./images/custom_login_screen.png" width="600"/>](./images/custom_login_screen.png)
 
-* In case more than one authentication provider is configured display specific hints on how to log into the cluster
+* In case more than one authentication provider is configured display specific hints on how to log into the cluster using either LDAP credentials or HTPassword credentials.
 
-* Replace the OpenShift logo in the console with the Red Hat Training System Logo
+* Replace the OpenShift logo in the console with the Red Hat Training System Logo:
 
   [<img src="./images/custom_logo.png" width="400"/>](./images/custom_logo.png)
 
-* Add two help links to the Help menu in the console for Red Hat employees and Red Hat partners to request help with their lab environment
+* Add two help links to the Help menu in the console for Red Hat employees and Red Hat partners to request help with their lab environment. This gives users a quick way to request help if they get stuck while working through a hands-on lab.
 
   [<img src="./images/custom_help_menu.png" width="300"/>](./images/custom_help_menu.png)
 
