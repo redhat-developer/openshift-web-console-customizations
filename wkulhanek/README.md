@@ -38,8 +38,7 @@ Wolfgang is responsible for OpenShift Container Platform Clusters used in Red Ha
   ```
 * Update the `OAuth` custom resource named `cluster` to use these HTML files:
   ```
-  oc patch oauth cluster -p '{"spec":{"templates": {"login": {"name": "login-template"}}}}'
-  oc patch oauth cluster -p '{"spec":{"templates": {"providerSelection": {"name": "providers-template"}}}}'
+  oc patch oauth cluster --type='merge' --patch '{"spec":{"templates": {"login":{"name":"login-template"},"providerSelection":{"name":"providers-template"}}}}'
   ```
 
 ### Customizing the Logo in the web console
@@ -50,7 +49,7 @@ Wolfgang is responsible for OpenShift Container Platform Clusters used in Red Ha
   ```
 * Update the `console.operator.openshift.io` custom resource named `cluster` to use that logo and a custom product name:
   ```
-  oc patch console.operator.openshift.io cluster -p '{"spec":{"customization": { "customLogoFile": {"key":"opentlc_logo.png","name": "console-custom-logo"},"customProductName":"OpenTLC Training System"}}}'
+  oc patch console.operator.openshift.io cluster --type='merge' --patch '{"spec":{"customization": { "customLogoFile": {"key":"opentlc_logo.png","name": "console-custom-logo"},"customProductName":"OpenTLC Training System"}}}'
   ```
 
 ### Customizing the Help Menu
