@@ -1,0 +1,8 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: rhpds-help-partners-link
+spec:
+  href: 'https://partnercenter.redhat.com/500/e?retURL=%2F500%2Fo&RecordType=012600000005EVG&cas14=OPEN+LMS+User+Issue&cas15=Enter+your+issue+or+question+here&00N60000001p2aH=OPEN+Program&00N60000001p2aI=LMS+User+Issue&ent=Case'
+  location: HelpMenu
+  text: Training help (Red Hat Partners)

@@ -1,0 +1,8 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: rhpds-help-internal-link
+spec:
+  href: 'https://redhat.service-now.com/help?id=sc_cat_item&sys_id=b92a06471306a600196f7e276144b092&sysparm_category=0062400913b35b00dce03ff18144b0b2&sc_catalog=64bee97813771b00dce03ff18144b092'
+  location: HelpMenu
+  text: Training help (Red Hat Employees)
