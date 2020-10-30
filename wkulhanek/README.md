@@ -59,3 +59,9 @@ Wolfgang is responsible for OpenShift Container Platform Clusters used in Red Ha
   oc apply -f ./yaml/rhpds_help_internal_link.yaml
   oc apply -f ./yaml/rhpds_help_partners_link.yaml
   ```
+
+## AgnosticD Workload
+
+A workload has been written to deploy the customization to any OpenShift cluster: https://github.com/redhat-cop/agnosticd/tree/development/ansible/roles_ocp_workloads/ocp4_workload_opentlc_webconsole
+
+This workload can be customized with image URLs, ConsoleLinks as well as header text.
