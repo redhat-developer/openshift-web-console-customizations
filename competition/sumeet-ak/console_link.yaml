@@ -1,0 +1,8 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: HelpMenu-dashboard-link-for-all-namespaces
+spec:
+  href: 'https://www.helpmenu.com'
+  location: HelpMenu
+  text: This appears in all namespaces
