@@ -1,0 +1,8 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: contact-rh
+spec:
+  href: 'https://access.redhat.com/support/contact?intcmp=hp|a|a4|contact&'
+  location: HelpMenu 
+  text: Contact Red Hat
