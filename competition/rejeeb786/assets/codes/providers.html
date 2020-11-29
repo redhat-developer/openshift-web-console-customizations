@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Sample Company - OCP Identity Provider Selection Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <style>
+      body {
+        font-family: "Open Sans", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+      }
+      .brand-wrapper {
+        padding-top: 5px;
+        padding-left: 60px;
+        padding-bottom: 1px;
+      }
+      .brand-wrapper .logo {
+        height: 100px;
+      }
+      .login-section-wrapper {
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+        padding: 18px 110px;
+        background-color: #fff;
+      }
+      @media (max-width: 991px) {
+        .login-section-wrapper {
+          padding-left: 50px;
+          padding-right: 50px;
+        }
+      }
+      @media (max-width: 575px) {
+        .login-section-wrapper {
+          padding-top: 20px;
+          padding-bottom: 20px;
+          min-height: 100vh;
+        }
+      }
+      .login-wrapper {
+        width: 380px;
+        max-width: 100%;
+        padding-top: 24px;
+        padding-bottom: 24px;
+      }
+      @media (max-width: 575px) {
+        .login-wrapper {
+          width: 100%;
+        }
+      }
+      .login-title {
+        font-size: 15px;
+        text-align: center;
+        font-weight: bold;
+        color: #000;
+      }
+      .login-title-idp {
+        font-size: 12px;
+        text-align: center;
+        font-weight: bold;
+        color: #000;
+      }
+      .login-img {
+        width: 100%;
+        height: 100vh;
+        -o-object-fit: cover;
+        object-fit: cover;
+        -o-object-position: left;
+        object-position: left;
+      }
+      *,
+      *:after,
+      *:before {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        -o-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      html,
+      body {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: rgb(243, 243, 243);
+        color: rgba(0, 0, 0, 0.6);
+        font-family: RobotoDraft, Roboto;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+      }
+      body header {
+        position: relative;
+        width: 100%;
+        height: 80px;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+        background: rgb(3, 169, 245);
+        font-size: 30px;
+        font-weight: 300;
+        color: rgb(242, 251, 253);
+        text-align: center;
+        line-height: 75px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6 login-section-wrapper">
+            <div class="brand-wrapper">
+              <img src="https://raw.githubusercontent.com/rejeeb786/openshift-web-console-customizations/master/competition/rejeeb786/assets/images/Logo.png" alt="logo" class="logo" />
+            </div>
+            <div class="login-wrapper my-auto">
+              <h1 class="login-title">Welcome to Red Hat OpenShift Container Platform</h1>
+              <h1 class="login-title-idp">Select Identity Provider</h1>
+              <br />
+              <center>
+                {{ range $provider := .Providers }}
+                <div>
+                  {{ if eq $provider.Name "anypassword" }}
+                  <a href="{{$provider.URL}}" class="btn btn-outline-primary">Log in</a> with your organization username and password {{ else }}
+                  <a href="{{$provider.URL}}" class="btn btn-outline-primary">{{$provider.Name}}</a>
+                  <br />
+                  <br />
+                  {{ end }}
+                </div>
+                {{ end }}
+              </center>
+              <br />
+              <br />
+              <p>Powered By</p>
+              <img src="https://raw.githubusercontent.com/rejeeb786/openshift-web-console-customizations/master/competition/rejeeb786/assets/images/RH-Logo.png" alt="Red Hat Logo" class="footer-img" />
+            </div>
+          </div>
+          <div class="col-sm-6 px-0 d-none d-sm-block">
+            <img src="https://raw.githubusercontent.com/rejeeb786/openshift-web-console-customizations/master/competition/rejeeb786/assets/images/BackgroundImage.jpg" alt="Background Image" class="login-img" />
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
