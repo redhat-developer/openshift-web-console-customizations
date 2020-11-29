@@ -1,0 +1,8 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: namespaced-dashboard-link-for-all-namespaces
+spec:
+  href: 'https://www.example.com/report-cluster-anomaly'
+  location: NamespaceDashboard
+  text: Report Anomaly
