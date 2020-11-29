@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Sample Company - OCP Login Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+    </script>
+    <style>
+      body {
+        font-family: "Open Sans", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+      }
+      .errormsg {
+        border: 1px solid;
+        padding: 15px 10px;
+        text-align: center;
+        background-repeat: no-repeat;
+        background-position: 10px center;
+        color: #d8000c;
+        background-color: #ffbaba;
+        background-image: url("https://raw.githubusercontent.com/rejeeb786/openshift-web-console-customizations/master/competition/rejeeb786/assets/images/ErrorIcon.png");
+      }
+      .brand-wrapper {
+        padding-top: 5px;
+        padding-left: 60px;
+        padding-bottom: 1px;
+      }
+      .brand-wrapper .logo {
+        height: 100px;
+      }
+      .login-section-wrapper {
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+        padding: 18px 110px;
+        background-color: #fff;
+      }
+      @media (max-width: 991px) {
+        .login-section-wrapper {
+          padding-left: 50px;
+          padding-right: 50px;
+        }
+      }
+      @media (max-width: 575px) {
+        .login-section-wrapper {
+          padding-top: 20px;
+          padding-bottom: 20px;
+          min-height: 100vh;
+        }
+      }
+      .login-wrapper {
+        width: 380px;
+        max-width: 100%;
+        padding-top: 24px;
+        padding-bottom: 24px;
+      }
+      @media (max-width: 575px) {
+        .login-wrapper {
+          width: 100%;
+        }
+      }
+      .login-wrapper label {
+        font-size: 14px;
+        font-weight: bold;
+        color: #b0adad;
+      }
+      .login-wrapper .form-control {
+        border: none;
+        border-bottom: 1px solid #e7e7e7;
+        border-radius: 0;
+        padding: 9px 5px;
+        min-height: 40px;
+        font-size: 18px;
+        font-weight: normal;
+      }
+      .login-wrapper .form-control::-webkit-input-placeholder {
+        color: #b0adad;
+      }
+      .login-wrapper .form-control::-moz-placeholder {
+        color: #b0adad;
+      }
+      .login-wrapper .form-control:-ms-input-placeholder {
+        color: #b0adad;
+      }
+      .login-wrapper .form-control::-ms-input-placeholder {
+        color: #b0adad;
+      }
+      .login-wrapper .form-control::placeholder {
+        color: #b0adad;
+      }
+      .login-title {
+        font-size: 15px;
+        text-align: center;
+        font-weight: bold;
+        color: #000;
+      }
+      .login-img {
+        width: 100%;
+        height: 100vh;
+        -o-object-fit: cover;
+        object-fit: cover;
+        -o-object-position: left;
+        object-position: left;
+      }
+      *,
+      *:after,
+      *:before {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        -o-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      html,
+      body {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: rgb(255, 255, 255);
+        color: rgba(0, 0, 0, 0.6);
+        font-family: RobotoDraft, Roboto;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+      }
+      body header {
+        position: relative;
+        width: 100%;
+        height: 80px;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+        background: rgb(3, 169, 245);
+        font-size: 30px;
+        font-weight: 300;
+        color: rgb(242, 251, 253);
+        text-align: center;
+        line-height: 75px;
+      }
+      form {
+        position: relative;
+        width: 350px;
+        margin: 50px 15px;
+      }
+      .form-group {
+        position: relative;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      .form-control {
+        display: block;
+        height: 36px;
+        width: 100%;
+        border: none;
+        border-radius: 0 !important;
+        font-size: 15px;
+        font-family: inherit;
+        font-weight: 300;
+        padding: 0;
+        background-color: transparent;
+        box-shadow: none;
+        border-bottom: 1px solid rgba(117, 117, 117, 0.15);
+      }
+      .form-control:focus {
+        border-bottom: 2px solid rgb(3, 169, 245);
+        outline: none;
+        box-shadow: none;
+      }
+      .form-highlight {
+        position: absolute;
+        height: 60%;
+        width: 60px;
+        top: 25%;
+        left: 0;
+        pointer-events: none;
+        opacity: 0.4;
+      }
+      .form-control:focus ~ .form-highlight {
+        -webkit-animation: inputHighlighter 0.3s ease;
+        -moz-animation: inputHighlighter 0.3s ease;
+        animation: inputHighlighter 0.3s ease;
+      }
+      .float-label {
+        position: absolute;
+        left: 0;
+        top: 10px;
+        font-size: 16px;
+        color: #999;
+        font-weight: 300;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+      }
+      .form-control:focus ~ .float-label,
+      .form-control:valid ~ .float-label {
+        top: -15px;
+        font-size: 12px;
+      }
+      button[type="submit"] {
+        position: relative;
+        float: right;
+        font-family: inherit;
+        font-weight: 100;
+        font-size: 15px;
+        border: 0;
+        margin: -3px 0px;
+        padding: 5px 15px;
+        border-radius: 3px;
+        cursor: pointer;
+        background: rgb(0, 102, 204);
+        color: #fff;
+        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-6 login-section-wrapper">
+            <div class="brand-wrapper">
+              <img src="https://raw.githubusercontent.com/rejeeb786/openshift-web-console-customizations/master/competition/rejeeb786/assets/images/Logo.png" alt="logo" class="logo" />
+            </div>
+            <div class="login-wrapper my-auto">
+              <h1 class="login-title">Welcome to Red Hat OpenShift Container Platform</h1>
+              <center>
+                {{ if .Error }}
+                <div class="errormsg">{{ .Error }}</div>
+                {{ end }}
+              </center>
+              <form action="{{ .Action }}" method="POST" id="login-form">
+                <div id="u" class="form-group">
+                  <input type="hidden" name="{{ .Names.Then }}" value="{{ .Values.Then }}" />
+                  <input type="hidden" name="{{ .Names.CSRF }}" value="{{ .Values.CSRF }}" />
+                  <input type="text" id="inputUsername" autofocus="autofocus" spellcheck="false" class="form-control" type="text" name="{{ .Names.Username }}" value="{{ .Values.Username }}" size="18" alt="login" required="" />
+                  <span class="form-highlight"></span>
+                  <span class="form-bar"></span>
+                  <label for="inputUsername" class="float-label">Username</label>
+                </div>
+                <div id="p" class="form-group">
+                  <input type="password" id="inputPassword" class="form-control" spellcheck="false" type="password" name="{{ .Names.Password }}" value="" size="18" alt="login" required="" />
+                  <span class="form-highlight"></span>
+                  <span class="form-bar"></span>
+                  <label for="inputPassword" class="float-label">Password</label>
+                </div>
+                <div class="form-group">
+                  <button onclick="goBack()" class="btn btn-outline-primary btn-sm" style="margin-right: 15px;">Go Back</button>
+                  <button id="submit" class="btn btn-primary btn-sm" type="submit" ripple>Log In</button>
+                </div>
+              </form>
+              <br />
+              <p>Powered By</p>
+              <img src="https://raw.githubusercontent.com/rejeeb786/openshift-web-console-customizations/master/competition/rejeeb786/assets/images/RH-Logo.png" alt="Red Hat Logo" class="footer-img" />
+            </div>
+          </div>
+          <div class="col-sm-6 px-0 d-none d-sm-block">
+            <img src="https://raw.githubusercontent.com/rejeeb786/openshift-web-console-customizations/master/competition/rejeeb786/assets/images/BackgroundImage.jpg" alt="Background Image" class="login-img" />
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
