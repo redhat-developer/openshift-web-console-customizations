@@ -1,0 +1,12 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleNotification
+metadata:
+  name: banner-top
+spec:
+  text: Kindly note that we will be experiencing server downtime due to infrastructure maintenance on 31st December 2020 from 23:00 until 23:59.
+  location: BannerTop 
+  link:
+    href: 'https://www.example.com/maintenance-schedule'
+    text: Maintenance Schedule
+  color: '#fff'
+  backgroundColor: '#CC0000'
