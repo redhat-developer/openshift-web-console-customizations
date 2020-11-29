@@ -1,0 +1,8 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: contact-it-team
+spec:
+  href: 'https://example.com/it-support'
+  location: UserMenu 
+  text: Contact IT Team
