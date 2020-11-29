@@ -1,0 +1,12 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: namespaced-dashboard-for-some-namespaces
+spec:
+  href: 'https://www.example.com/request-for-elevated-privileges'
+  location: NamespaceDashboard
+  text: Request Elevated Privileges
+  namespaceDashboard:
+    namespaces:
+    - sample-namespace
+    - test-namespace
