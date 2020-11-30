@@ -9,11 +9,11 @@ As customization options are fairly limited to icons and notifications which are
 I have started experimenting with overal OpenShift customization on code level and seeing if there is easy way to add some plugability/extensions to address issues of the UI I have known from the field.
 As my entry I would like to propose concept of organizing your own sidebar in openshift by defining new roles in the team.
 
-New role defined
-![](./Dropdown.png]
+New space reachable in the dropdown
+![](./Dropdown.png)
 
 Defined space
-![](./Space.png]
+![](./Space.png)
 
 ## Definition of the problem
 
