@@ -372,7 +372,7 @@ $ oc apply -f configmap-yaml-sample.yaml
 [<img src="./assets/screenshots/ConfigmapYAMLScreenshot.png" width="100%"/>](./assets/screenshots/ConfigmapYAMLScreenshot.png)
 ## Want to try out these customizations?
 
-You could try out all the customizations mentioned above in just 3-steps! You could revert it as well.
+As a `cluster-admin` user, you could try out all the customizations mentioned above in just 3-steps! You could revert it as well.
 
 ### 3-Steps to apply all the customizations mentioned above
 ```
