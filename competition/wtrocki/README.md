@@ -90,7 +90,8 @@ OpenShift Sidebaritems available as CR
 `oc apply -f sidebaritem.yml` (uses operator for registration of the sidebar)
 
 Sidebar definitions could look as follows
-```
+
+```yaml
 apiVersion: operators.coreos.com/v1alpha1
 kind: CustomSidebar
 metadata:
