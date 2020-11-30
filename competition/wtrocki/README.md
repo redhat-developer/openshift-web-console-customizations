@@ -1,18 +1,22 @@
 # OpenShift Web Console Customization Competition
 
 Wojciech Trocki entry for the OpenShift Web Console Customization Competition.
-It might be invalid due to not following the rules, but I wanted to drop some of the ideas for customizations.
+It might be invalid due to not following the rules, but I wanted to drop some of the ideas for customizations that could be done by
+Operator + very small amount of code in the OpenShift UI itself.
 
 ## Customization details:
 
-As customization options are fairly limited to icons and notifications which are on its own are trivial and limiting creativity. I wanted to see how we can extend current customization engine to deliver more customizations.
-I have started experimenting with overal OpenShift customization on code level and seeing if there is easy way to add some plugability/extensions to address issues of the UI I have known from the field.
+I wanted to see how we can extend current customization engine to deliver more customizations rather than use current ones.
+Looked into numerous areas and picked the one that I think might be the most important to start with.
+I have started experimenting with overal OpenShift customization on code level and seeing if there is easy way to add some plugability/extensions to address issues of the UI I have known from the field. My main target was to keep code on the openshift ui small and have well documented extension mechanism etc.
 As my entry I would like to propose concept of organizing your own sidebar in openshift by defining new roles in the team.
 
 New space reachable in the dropdown
+
 ![](./Dropdown.png)
 
-Defined space
+Defined space will look like this (with the core sidebar items referenced)
+
 ![](./Space.png)
 
 ## Definition of the problem
