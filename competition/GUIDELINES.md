@@ -33,10 +33,10 @@ If you fail to do so, it will result in your immediate disqualification from the
             - screenshots capturing what has been customized 
             - supporting code and explicit steps on how to accomplish the customization
         - *the why*, explaining how do these customizations help.  What is the value add of this customization?  Does it satisfy a re-branding requirement, customize the developer experience ... ?
-- **All submissions must be submitted by November 29th 11:59 pm PST**
+- **All submissions must be submitted by ~~November 29th~~ December 6 11:59 pm PST**
 
 ## Determining the Winner
-Tune into the joint OpenShift Commons / Developer Experience Office Hours session on [OpenShift.tv](https://www.openshift.com/streaming) on **Tuesday, December 1st at 11am EST**
+Tune into the joint OpenShift Commons / Developer Experience Office Hours session on [OpenShift.tv](https://www.openshift.com/streaming) on **Tuesday, December ~~1st~~ 6th at 11am EST**
 - The top 10 submissions, determined by the Competition Committee, will be announced
 - During the show, viewers will determine the top 3 winners by online voting 
 
