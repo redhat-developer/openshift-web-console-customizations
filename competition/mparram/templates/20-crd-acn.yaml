@@ -114,6 +114,26 @@ spec:
                 JSONPath:
                   description: JSONPath is the path inside the output to create the ConsoleNotification if it's not empty, or with the regexp if defined.
                   type: string
+                plugin:
+                  description: Enable plugin to use.
+                  type: object
+                  properties:
+                    argocd:
+                      description: First plugin developed, enable plugins\argocd.js file from source code to apply on the ACN object
+                      type: object
+                      required:
+                        - namespace
+                        - visible
+                      properties:
+                        namespace:
+                          description: namespaces to search ArgoCD applications objects
+                          type: array
+                          items:
+                            type: string
+                          nullable: true
+                        visible:
+                          description: create consolenotification from [ok,warning,critical] status
+                          type: string
                 regexp:
                   description: if defined, will compare the content from JSONPath
                   type: string

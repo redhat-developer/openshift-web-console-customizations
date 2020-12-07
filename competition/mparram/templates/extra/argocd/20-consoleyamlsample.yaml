@@ -1,0 +1,36 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleYAMLSample
+metadata:
+  name: apiconsolenotificationargocd
+spec:
+  description: >-
+    An example of APIConsoleNotification with argocd plugin to view Applications Health from ArgoCD Operator.
+  targetResource:
+    apiVersion: console.openshift.io/v1
+    kind: APIConsoleNotification
+  title: ArgoCD applications status
+  yaml: |
+    apiVersion: console.openshift.io/v1
+    kind: APIConsoleNotification
+    metadata:
+      name: argocd-01
+    spec:
+      JSONPath: ''
+      plugin:
+        argocd:
+          namespace:
+            - argocd
+          visible: ok
+      consolenotification:
+        backgroundColor: '#333333'
+        color: '#fff'
+        link:
+          href: 'https://argocd.apps.example.com/applications'
+          text: ArgoCD Apps
+        location: BannerTop
+        name: argocd-01
+        text: >-
+          ArgoCD Apps: $argocd-text$
+      endpoint:
+        url: 'https://kube.local'
+        headers: {}

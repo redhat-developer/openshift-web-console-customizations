@@ -23,36 +23,40 @@ var job = new CronJob('0 * * * * *', function() {
           var response = JSON.parse(body);
           var acnArray = response.items;
           acnArray.forEach(acn => {
-            https.get(acn.spec.endpoint.url, function(res){
-              var body = '';
-              res.on('data', function(chunk){
-                  body += chunk;
-              });
-              res.on('end', function(){
-                  var response = JSON.parse(body);
-                  var streamer = jsonPathToValue(response, acn.spec.JSONPath);
-                  if (streamer !== "0") {
-                      var existcn;
-                      const consolenotificationcheck = {
-                        hostname: process.env.KUBERNETES_PORT_443_TCP_ADDR,
-                        port: 443,
-                        path: '/apis/console.openshift.io/v1/consolenotifications/' + acn.metadata.name,
-                        rejectUnauthorized: false,  
-                        headers: {
-                           Authorization: 'Bearer ' + token
-                        }
-                      };
-                      https.get(consolenotificationcheck, function(res){
-                        var body = '';
-                        res.on('data', function(chunk){
-                            body += chunk;
-                        });
-                        res.on('end', function(){
-                            existcn = JSON.parse(body);
-
-                            if (existcn.status == "Failure"){
-                              var template = "template_" + Math.floor(Math.random() * (9999- 1111) + 1111);
-                              var consolenotificationyaml = `apiVersion: console.openshift.io/v1
+            if (acn.spec.plugin != undefined) {
+              var plugin = require('./plugins/argocd.js');
+              plugin.run(acn, token);
+            } else {
+              https.get(acn.spec.endpoint.url, function(res){
+                var body = '';
+                res.on('data', function(chunk){
+                    body += chunk;
+                });
+                res.on('end', function(){
+                    var response = JSON.parse(body);
+                    var streamer = jsonPathToValue(response, acn.spec.JSONPath);
+                    if (streamer !== "0") {
+                        var existcn;
+                        const consolenotificationcheck = {
+                          hostname: process.env.KUBERNETES_PORT_443_TCP_ADDR,
+                          port: 443,
+                          path: '/apis/console.openshift.io/v1/consolenotifications/' + acn.metadata.name,
+                          rejectUnauthorized: false,  
+                          headers: {
+                             Authorization: 'Bearer ' + token
+                          }
+                        };
+                        https.get(consolenotificationcheck, function(res){
+                          var body = '';
+                          res.on('data', function(chunk){
+                              body += chunk;
+                          });
+                          res.on('end', function(){
+                              existcn = JSON.parse(body);
+  
+                              if (existcn.status == "Failure"){
+                                var template = "template_" + Math.floor(Math.random() * (9999- 1111) + 1111);
+                                var consolenotificationyaml = `apiVersion: console.openshift.io/v1
 kind: ConsoleNotification
 metadata:
   name: ` + acn.spec.consolenotification.name + `
@@ -64,64 +68,65 @@ spec:
     text: ` + acn.spec.consolenotification.link.text + `
   color: '` + acn.spec.consolenotification.color + `'
   backgroundColor: '` + acn.spec.consolenotification.backgroundColor + `'`;
-                              fs.writeFileSync(template,  consolenotificationyaml);
-                              const oc = spawn('oc', ['create', '-f', template]);
-
-                              oc.stdout.on('data', (data) => {
-                                console.log(`stdout: ${data}`);
-                              });
-                              oc.stderr.on('data', (data) => {
-                                console.error(`stderr: ${data}`);
-                              });
-                              oc.on('close', (code) => {
-                                fs.unlink(template, (err) => {
-                                  if (err) {
-                                    console.error(err);
-                                    return;
-                                  }
+                                fs.writeFileSync(template,  consolenotificationyaml);
+                                const oc = spawn('oc', ['create', '-f', template]);
+  
+                                oc.stdout.on('data', (data) => {
+                                  console.log(`stdout: ${data}`);
                                 });
-                              });
-                            }
+                                oc.stderr.on('data', (data) => {
+                                  console.error(`stderr: ${data}`);
+                                });
+                                oc.on('close', (code) => {
+                                  fs.unlink(template, (err) => {
+                                    if (err) {
+                                      console.error(err);
+                                      return;
+                                    }
+                                  });
+                                });
+                              }
+                          });
                         });
-                      });
-                      
-                  } else{
-                      var existcn;
-                      const consolenotificationcheck2 = {
-                        hostname: process.env.KUBERNETES_PORT_443_TCP_ADDR,
-                        port: 443,
-                        path: '/apis/console.openshift.io/v1/consolenotifications/' + acn.metadata.name,
-                        rejectUnauthorized: false,  
-                        headers: {
-                           Authorization: 'Bearer ' + token
-                        }
-                      };
-                      https.get(consolenotificationcheck2, function(res){
-                        var body = '';
-                        res.on('data', function(chunk){
-                            body += chunk;
+                        
+                    } else{
+                        var existcn;
+                        const consolenotificationcheck2 = {
+                          hostname: process.env.KUBERNETES_PORT_443_TCP_ADDR,
+                          port: 443,
+                          path: '/apis/console.openshift.io/v1/consolenotifications/' + acn.metadata.name,
+                          rejectUnauthorized: false,  
+                          headers: {
+                             Authorization: 'Bearer ' + token
+                          }
+                        };
+                        https.get(consolenotificationcheck2, function(res){
+                          var body = '';
+                          res.on('data', function(chunk){
+                              body += chunk;
+                          });
+                          res.on('end', function(){
+                              existcn = JSON.parse(body);
+  
+                              if (existcn.status != "Failure"){
+                                const oc = spawn('oc', ['delete', 'consolenotification', acn.spec.consolenotification.name]);
+                                oc.stdout.on('data', (data) => {
+                                  console.log(`stdout: ${data}`);
+                                });
+                                
+                                oc.stderr.on('data', (data) => {
+                                  console.error(`stderr: ${data}`);
+                                });
+                              }
+                          });
                         });
-                        res.on('end', function(){
-                            existcn = JSON.parse(body);
-
-                            if (existcn.status != "Failure"){
-                              const oc = spawn('oc', ['delete', 'consolenotification', acn.spec.consolenotification.name]);
-                              oc.stdout.on('data', (data) => {
-                                console.log(`stdout: ${data}`);
-                              });
-                              
-                              oc.stderr.on('data', (data) => {
-                                console.error(`stderr: ${data}`);
-                              });
-                            }
-                        });
-                      });
-                      
-                  }
+                        
+                    }
+                });
+              }).on('error', function(err){
+                  console.log("Got an error: ", err);
               });
-            }).on('error', function(err){
-                console.log("Got an error: ", err);
-            });
+            }
           });
 
       });
