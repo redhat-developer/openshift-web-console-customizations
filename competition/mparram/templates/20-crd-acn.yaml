@@ -1,0 +1,154 @@
+kind: CustomResourceDefinition
+apiVersion: apiextensions.k8s.io/v1
+metadata:
+  name: apiconsolenotifications.console.openshift.io
+  annotations:
+    description: Extension for configuring openshift web console notifications based on apis get method.
+    displayName: APIConsoleNotification
+spec:
+  subresources:
+    status: {}
+  names:
+    plural: apiconsolenotifications
+    singular: apiconsolenotification
+    kind: APIConsoleNotification
+    listKind: APIConsoleNotificationList
+  additionalPrinterColumns:
+    - name: Text
+      type: string
+      JSONPath: .spec.text
+    - name: Location
+      type: string
+      JSONPath: .spec.location
+    - name: Age
+      type: date
+      JSONPath: .metadata.creationTimestamp
+  scope: Cluster
+  conversion:
+    strategy: None
+  preserveUnknownFields: false
+  version: v1
+  group: console.openshift.io
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          description: >-
+            ConsoleNotification is the extension for configuring openshift web
+            console notifications.
+          type: object
+          required:
+            - spec
+          properties:
+            apiVersion:
+              description: >-
+                APIVersion defines the versioned schema of this representation of an
+                object. Servers should convert recognized schemas to the latest
+                internal value, and may reject unrecognized values. More info:
+                https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+              type: string
+            kind:
+              description: >-
+                Kind is a string value representing the REST resource this object
+                represents. Servers may infer this from the endpoint the client
+                submits requests to. Cannot be updated. In CamelCase. More info:
+                https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+              type: string
+            metadata:
+              type: object
+            spec:
+              description: >-
+                APIConsoleNotificationSpec is the desired console notification
+                configuration.
+              type: object
+              required:
+                - endpoint
+                - JSONPath
+                - consolenotification
+              properties:
+                consolenotification:
+                  description: associate one ConsoleNotification and it's definition
+                  type: object
+                  required:
+                    - name
+                    - text
+                  properties:
+                    backgroundColor:
+                      description: >-
+                        backgroundColor is the color of the background for the
+                        notification as CSS data type color.
+                      type: string
+                    color:
+                      description: >-
+                        color is the color of the text for the notification as CSS data
+                        type color.
+                      type: string
+                    link:
+                      description: associate one ConsoleNotification and it's definition
+                      type: object
+                      required:
+                        - href
+                        - text
+                      properties:
+                        href:
+                          description: >-
+                            href is the absolute secure URL for the link (must use
+                            https)
+                          type: string
+                          pattern: '^https://'
+                        text:
+                          description: text is the display text for the link
+                          type: string
+                    location:
+                      description: location is the location of the notification in the console.
+                      type: string
+                      pattern: ^(BannerTop|BannerBottom|BannerTopBottom)$
+                    name:
+                      description: Name for the ConsoleNotification.
+                      type: string
+                    text:
+                      description: text is the visible text of the notification.
+                      type: string
+                JSONPath:
+                  description: JSONPath is the path inside the output to create the ConsoleNotification if it's not empty, or with the regexp if defined.
+                  type: string
+                plugin:
+                  description: Enable plugin to use.
+                  type: object
+                  properties:
+                    argocd:
+                      description: First plugin developed, enable plugins\argocd.js file from source code to apply on the ACN object
+                      type: object
+                      required:
+                        - namespace
+                        - visible
+                      properties:
+                        namespace:
+                          description: namespaces to search ArgoCD applications objects
+                          type: array
+                          items:
+                            type: string
+                          nullable: true
+                        visible:
+                          description: create consolenotification from [ok,warning,critical] status
+                          type: string
+                regexp:
+                  description: if defined, will compare the content from JSONPath
+                  type: string
+                ttl:
+                  description: if defined, time to live for the ConsoleNotification prior to delete. Default is 0.
+                  type: string
+                endpoint:
+                  description: endpoint API to query, it have url and HEADERS 
+                  type: object
+                  required:
+                    - url
+                  properties:
+                    url:
+                      description: url is the api to get, and read the JSONPath value.
+                      type: string
+                    headers:
+                      description: 'add headers in this object as name: value'
+                      type: object

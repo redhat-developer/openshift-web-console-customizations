@@ -1,0 +1,31 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleYAMLSample
+metadata:
+  name: apiconsolenotificationtwitch
+spec:
+  description: >-
+    An example APIConsoleNotification to advise when the Openshift.tv channel is
+    online
+  targetResource:
+    apiVersion: console.openshift.io/v1
+    kind: APIConsoleNotification
+  title: Twitch channel online
+  yaml: |
+    apiVersion: console.openshift.io/v1
+    kind: APIConsoleNotification
+    metadata:
+      name: openshifttv
+    spec:
+      JSONPath: 'chatters.broadcaster[0]'
+      consolenotification:
+        backgroundColor: '#de3500'
+        color: '#fff'
+        link:
+          href: https://www.twitch.tv/redhatopenshift
+          text: Openshift Twitch channel
+        location: BannerTop
+        name: openshifttv
+        text: Openshift.tv is going live! - Follow Chris Short & Co. to understand what the hell are you doing
+      endpoint:
+        url: 'https://tmi.twitch.tv/group/user/redhatopenshift/chatters'
+        headers: {}

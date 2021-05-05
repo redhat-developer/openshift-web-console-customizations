@@ -1,0 +1,16 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: acn
+  namespace: acn
+  labels:
+    app: acn2
+    app.kubernetes.io/component: acn
+    app.kubernetes.io/instance: acn
+    app.kubernetes.io/name: nodejs
+    app.kubernetes.io/part-of: acn
+    app.openshift.io/runtime: nodejs
+    app.openshift.io/runtime-version: 12-ubi8
+spec:
+  lookupPolicy:
+    local: false
