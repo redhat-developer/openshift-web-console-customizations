@@ -1,0 +1,12 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: connect
+spec:
+  href: 'https://meet.google.com/'
+  location: ApplicationMenu
+  text: Launch a Meeting
+  applicationMenu:
+    section: Connect
+    # image that is 24x24 in size
+    imageURL: https://raw.githubusercontent.com/rejeeb786/openshift-web-console-customizations/master/competition/rejeeb786/assets/images/AppMenu2.png

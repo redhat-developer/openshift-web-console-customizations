@@ -1,0 +1,18 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleYAMLSample
+metadata:
+  name: configmap-yaml-sample
+spec:
+  targetResource:
+    apiVersion: v1
+    kind: ConfigMap
+  title: Example ConfigMap
+  description: An example ConfigMap YAML sample
+  yaml: |
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: special-config 
+    data:
+      company.name: sample 
+      company.product: ocp 

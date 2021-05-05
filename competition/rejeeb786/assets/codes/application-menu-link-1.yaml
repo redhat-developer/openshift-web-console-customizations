@@ -1,0 +1,12 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: my-subscriptions
+spec:
+  href: 'https://access.redhat.com/management'
+  location: ApplicationMenu
+  text: Red Hat Subscription Management
+  applicationMenu:
+    section: My Subscriptions
+    # image that is 24x24 in size
+    imageURL: https://raw.githubusercontent.com/rejeeb786/openshift-web-console-customizations/master/competition/rejeeb786/assets/images/AppMenu1.png

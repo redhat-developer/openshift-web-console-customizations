@@ -1,0 +1,12 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleNotification
+metadata:
+  name: banner-bottom
+spec:
+  text: Copyright © 2020 Sample Company, Inc. | 
+  location: BannerBottom 
+  link:
+    href: 'https://www.example.com/data-protection-policy'
+    text: Data Protection and Privacy Policy
+  color: '#fff'
+  backgroundColor: '#000'

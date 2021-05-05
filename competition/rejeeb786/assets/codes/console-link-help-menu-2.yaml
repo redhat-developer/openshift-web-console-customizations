@@ -1,0 +1,8 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: rh-cve-db
+spec:
+  href: 'https://access.redhat.com/security/security-updates/#/cve'
+  location: HelpMenu 
+  text: Red Hat CVE Database

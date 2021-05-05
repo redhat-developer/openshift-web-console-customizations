@@ -1,0 +1,8 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: change-password
+spec:
+  href: 'https://sample-link-to-the-password-reset-page-of-the-organization'
+  location: UserMenu 
+  text: Change Password

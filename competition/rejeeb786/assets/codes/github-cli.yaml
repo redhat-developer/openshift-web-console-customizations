@@ -1,0 +1,15 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleCLIDownload
+metadata:
+  name: github-cli
+spec:
+  description: |
+    gh is GitHub on the command line. It brings pull requests, issues, and other GitHub concepts to the terminal next to where you are already working with git and your code. GitHub CLI is available for repositories hosted on GitHub.com and GitHub Enterprise Server 2.20+.
+  displayName: GitHub CLI
+  links:
+  - href: 'https://github.com/cli/cli#homebrew'
+    text: GitHub CLI for Linux
+  - href: 'https://brew.sh/'
+    text: GitHub CLI for Mac
+  - href: 'https://github.com/microsoft/winget-cli'
+    text: GitHub CLI for Windows

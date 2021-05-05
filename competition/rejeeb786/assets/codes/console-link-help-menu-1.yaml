@@ -1,0 +1,8 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: latest-ocp-release
+spec:
+  href: 'https://docs.openshift.com/container-platform/latest/release_notes/ocp-4-6-release-notes.html'
+  location: HelpMenu 
+  text: Latest OCP Release
