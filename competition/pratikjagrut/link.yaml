@@ -1,0 +1,8 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: openshift-github-org
+spec:
+  href: 'https://github.com/openshift'
+  location: HelpMenu 
+  text: "Openshift Github Org"
